@@ -5,5 +5,5 @@ config = {
   "low_float": 24,
   "timeout": 30,
   "delay": 10,
-  "overfill": 10
+  "overfill": 20
 }
