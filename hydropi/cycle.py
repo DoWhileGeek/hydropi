@@ -24,6 +24,9 @@ def fill():
     print("waiting for high_float")
     high_float.wait_for_press()
 
+    print("overfilling")
+    sleep(config["overfill"])
+
     print("turning off in_pump")
     in_pump.off()
 
@@ -32,6 +35,7 @@ def fill():
         if not high_float.is_pressed:
             sleep(config["delay"])
             in_pump.on()
+            print("refilling")
             high_float.wait_for_press()
             sleep(config["overfill"])
             in_pump.off()
@@ -54,6 +58,7 @@ def drain():
         if low_float.is_pressed:
             sleep(config["delay"])
             out_pump.on()
+            print("redraining")
             low_float.wait_for_release()
             out_pump.off()
         else:

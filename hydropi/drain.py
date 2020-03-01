@@ -1,32 +1,14 @@
 #!/usr/bin/python
 
 import sys
+from time import sleep
 
 import gpiozero
 from gpiozero import Button
 
 from hydropi.devices import low_float, out_pump
 from hydropi.config import config
-
-
-def drain():
-    print("turning on off_pump")
-    out_pump.on()
-
-    print("waiting for low_float")
-    low_float.wait_for_release()
-
-    out_pump.off()
-
-    while True:
-        low_float.wait_for_press(config["timeout"])
-        if low_float.is_pressed:
-            sleep(config["delay"])
-            out_pump.on()
-            low_float.wait_for_release()
-            out_pump.off()
-        else:
-            break
+from hydropi.cycle import drain
 
 
 def main_loop():
