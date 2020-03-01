@@ -58,6 +58,7 @@ def drain():
         if low_float.is_pressed:
             break
         else:
+            sleep(config["delay"])
             out_pump.on()
             print("redraining")
             low_float.wait_for_press()
