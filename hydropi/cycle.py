@@ -11,7 +11,7 @@ from hydropi.config import config
 
 
 def setup():
-    if not low_float.is_pressed or high_float.is_pressed:
+    if not low_float.is_pressed or not high_float.is_pressed:
         print("the floats are in a strange state, quitting")
         raise Exception("bad start state")
 
@@ -22,7 +22,7 @@ def fill():
 
 
     print("waiting for high_float")
-    high_float.wait_for_press()
+    high_float.wait_for_release()
 
     print("overfilling")
     sleep(config["overfill"])
@@ -31,12 +31,12 @@ def fill():
     in_pump.off()
 
     while True:
-        high_float.wait_for_release(config["timeout"])
-        if not high_float.is_pressed:
+        high_float.wait_for_press(config["timeout"])
+        if not not high_float.is_pressed:
             sleep(config["delay"])
             in_pump.on()
             print("refilling")
-            high_float.wait_for_press()
+            high_float.wait_for_release()
             sleep(config["overfill"])
             in_pump.off()
         else:
