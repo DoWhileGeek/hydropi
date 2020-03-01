@@ -12,9 +12,15 @@ from hydropi.config import config
 
 def fill():
     print("turning on in_pump")
+    in_pump.on()
+
+    high_float.wait_for_release()
+
+    in_pump.off()
+
     while True:
         high_float.wait_for_press(config["timeout"])
-        if high_float.is_pressed:
+        if not high_float.is_pressed:
             break
         else:
             sleep(config["delay"])
