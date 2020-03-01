@@ -62,6 +62,7 @@ def drain():
             out_pump.on()
             print("redraining")
             low_float.wait_for_press()
+            sleep(config["overfill"])
             out_pump.off()
 
 
