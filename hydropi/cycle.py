@@ -33,6 +33,7 @@ def fill():
             sleep(config["delay"])
             in_pump.on()
             high_float.wait_for_press()
+            time.sleep(config["overfill"])
             in_pump.off()
         else:
             break
