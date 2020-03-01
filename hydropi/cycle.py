@@ -11,7 +11,7 @@ from hydropi.config import config
 
 
 def setup():
-    if low_float.is_pressed or high_float.is_pressed:
+    if not low_float.is_pressed or high_float.is_pressed:
         print("the floats are in a strange state, quitting")
         raise Exception("bad start state")
 
