@@ -60,7 +60,7 @@ def drain():
         else:
             out_pump.on()
             print("redraining")
-            low_float.wait_for_release()
+            low_float.wait_for_press()
             out_pump.off()
 
 
