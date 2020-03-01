@@ -45,7 +45,7 @@ def fill():
 
 
 def drain():
-    print("turning on off_pump")
+    print("turning on out_pump")
     out_pump.on()
 
     print("waiting for low_float")
@@ -58,7 +58,6 @@ def drain():
         if low_float.is_pressed:
             break
         else:
-            sleep(config["delay"])
             out_pump.on()
             print("redraining")
             low_float.wait_for_release()
