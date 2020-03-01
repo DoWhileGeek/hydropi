@@ -10,12 +10,6 @@ from hydropi.devices import low_float, high_float, in_pump, out_pump
 from hydropi.config import config
 
 
-def setup():
-    if not low_float.is_pressed or not high_float.is_pressed:
-        print("the floats are in a strange state, quitting")
-        raise Exception("bad start state")
-
-
 def fill():
     print("turning on in_pump")
     while True:
@@ -48,7 +42,6 @@ def drain():
 
 
 def main_loop():
-    setup()
     fill()
     drain()
 
