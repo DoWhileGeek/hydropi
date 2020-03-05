@@ -25,6 +25,10 @@ def fill():
 
 def drain():
     print("turning on out_pump")
+    out_pump.on()
+    low_float.wait_for_press()
+    out_pump.off()
+
     while True:
         low_float.wait_for_release(config["timeout"])
         if low_float.is_pressed:
