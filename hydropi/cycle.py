@@ -43,14 +43,20 @@ def drain():
 
 
 def main_loop():
-    fill()
-    drain()
+    try:
+        fill()
+        drain()
 
-    # turn all pumps off
-    in_pump.off()
-    out_pump.off()
+    except:
+        print("unhandled exception")
+    except KeyboardInterrupt:
+        print("cancelling")
+    finally:
+        # turn all pumps off
+        in_pump.off()
+        out_pump.off()
 
-    sys.exit(0)
+        sys.exit(0)
 
 
 if __name__ == "__main__":
