@@ -16,7 +16,7 @@ def fill():
 
     high_float.wait_for_release()
 
-    print(f"overfilling for {config['overfill']} seconds"
+    print(f"overfilling for {config['overfill']} seconds")
     sleep(config["overfill"])
 
     in_pump.off()
