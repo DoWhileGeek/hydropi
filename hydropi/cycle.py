@@ -16,19 +16,10 @@ def fill():
 
     high_float.wait_for_release()
 
-    in_pump.off()
+    print(f"overfilling for {config['overfill']} seconds"
+    sleep(config["overfill"])
 
-    while True:
-        high_float.wait_for_press(config["timeout"])
-        if not high_float.is_pressed:
-            break
-        else:
-            sleep(config["delay"])
-            in_pump.on()
-            print("refilling")
-            high_float.wait_for_release()
-            sleep(config["overfill"] * 2)
-            in_pump.off()
+    in_pump.off()
 
 
 
