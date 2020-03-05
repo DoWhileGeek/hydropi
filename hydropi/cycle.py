@@ -47,10 +47,10 @@ def main_loop():
         fill()
         drain()
 
-    except:
-        print("unhandled exception")
     except KeyboardInterrupt:
         print("cancelling")
+    except:
+        print("unhandled exception")
     finally:
         # turn all pumps off
         in_pump.off()
