@@ -1,5 +1,5 @@
 drain:
-	./ hydropi/cycle.py drain
+	./hydropi/cycle.py drain
 
 fill:
 	./hydropi/cycle.py fill
