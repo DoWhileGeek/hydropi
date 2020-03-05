@@ -1,8 +1,8 @@
 drain:
-	python3 hydropi/cycle.py drain
+	./ hydropi/cycle.py drain
 
 fill:
-	python3 hydropi/cycle.py fill
+	./hydropi/cycle.py fill
 
 cycle:
-	python3 hydropi/cycle.py cycle
+	./hydropi/cycle.py cycle
