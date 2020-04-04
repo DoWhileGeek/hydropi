@@ -81,7 +81,7 @@ def main():
 def drain_tank(args):
     print("turning on out_pump")
     try:
-        out_pump.on()
+        in_pump.on()
     except KeyboardInterrupt:
         print("shuting down")
 
