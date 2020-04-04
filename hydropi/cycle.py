@@ -65,12 +65,26 @@ def main():
         parser_drain = subparsers.add_parser('cycle')
         parser_drain.set_defaults(func=cycle)
 
+        # create the parser for the "drain:tank" command
+        parser_drain = subparsers.add_parser('drain:tank')
+        parser_drain.set_defaults(func=drain_tank)
+
         # parse the args and call whatever function was selected
         args = parser.parse_args()
         args.func(args)
 
     except KeyboardInterrupt:
         print("cancelling")
+
+
+# utilities
+def drain_tank(args):
+    print("turning on out_pump")
+    try:
+        out_pump.on()
+    except KeyboardInterrupt:
+        print("shuting down")
+
 
 if __name__ == "__main__":
     main()

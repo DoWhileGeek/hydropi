@@ -6,3 +6,6 @@ fill:
 
 cycle:
 	./hydropi/cycle.py cycle
+
+drain_tank:
+	./hydropi/cycle.py drain:tank
