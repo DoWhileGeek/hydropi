@@ -9,3 +9,6 @@ cycle:
 
 drain_tank:
 	./hydropi/cycle.py drain:tank
+
+ping:
+	./hydropi/cycle.py  ping

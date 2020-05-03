@@ -47,7 +47,7 @@ def cycle(args):
     drain(args)
 
 
-def  ping_pong(args):
+def  ping(args):
     print("pong!")
 
 
@@ -73,9 +73,9 @@ def main():
         parser_drain = subparsers.add_parser('drain:tank')
         parser_drain.set_defaults(func=drain_tank)
 
-        # create the parser for the "ping:pong" command
-        parser_drain = subparsers.add_parser('ping:pong')
-        parser_drain.set_defaults(func=ping_pong)
+        # create the parser for the "ping" command
+        parser_drain = subparsers.add_parser('ping')
+        parser_drain.set_defaults(func=ping)
 
         # parse the args and call whatever function was selected
         args = parser.parse_args()
