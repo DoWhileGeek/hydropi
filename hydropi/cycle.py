@@ -47,7 +47,7 @@ def cycle(args):
     drain(args)
 
 
-def  ping(args):
+def ping(args):
     print("pong!")
 
 
@@ -58,23 +58,23 @@ def main():
         subparsers = parser.add_subparsers()
 
         # create the parser for the "fill" command
-        parser_fill = subparsers.add_parser('fill')
+        parser_fill = subparsers.add_parser("fill")
         parser_fill.set_defaults(func=fill)
 
         # create the parser for the "drain" command
-        parser_drain = subparsers.add_parser('drain')
+        parser_drain = subparsers.add_parser("drain")
         parser_drain.set_defaults(func=drain)
 
         # create the parser for the "cycle" command
-        parser_drain = subparsers.add_parser('cycle')
+        parser_drain = subparsers.add_parser("cycle")
         parser_drain.set_defaults(func=cycle)
 
         # create the parser for the "drain:tank" command
-        parser_drain = subparsers.add_parser('drain:tank')
+        parser_drain = subparsers.add_parser("drain:tank")
         parser_drain.set_defaults(func=drain_tank)
 
         # create the parser for the "ping" command
-        parser_drain = subparsers.add_parser('ping')
+        parser_drain = subparsers.add_parser("ping")
         parser_drain.set_defaults(func=ping)
 
         # parse the args and call whatever function was selected
