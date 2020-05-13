@@ -3,28 +3,30 @@
 import argparse
 import sys
 from time import sleep
+import logging
 
 import gpiozero
 from gpiozero import Button
 
 from hydropi.devices import low_float, high_float, in_pump, out_pump
 from hydropi.config import config
+from hydropi.utils.logging import setup_logging
 
 
 def fill(args):
-    print("turning on in_pump")
+    logging.info("turning on in_pump")
     in_pump.on()
 
     high_float.wait_for_release()
 
-    print(f"overfilling for {config['overfill']} seconds")
+    logging.info(f"overfilling for {config['overfill']} seconds")
     sleep(config["overfill"])
 
     in_pump.off()
 
 
 def drain(args):
-    print("turning on out_pump")
+    logging.info("turning on out_pump")
     out_pump.on()
     low_float.wait_for_press()
     out_pump.off()
@@ -36,7 +38,7 @@ def drain(args):
         else:
             sleep(config["delay"])
             out_pump.on()
-            print("redraining")
+            logging.info("redraining")
             low_float.wait_for_press()
             sleep(config["overfill"])
             out_pump.off()
@@ -48,10 +50,12 @@ def cycle(args):
 
 
 def ping(args):
-    print("pong!")
+    logging.info("pong!")
 
 
 def main():
+    setup_logging()
+
     try:
         # create the top-level parser
         parser = argparse.ArgumentParser()
@@ -82,19 +86,19 @@ def main():
         args.func(args)
 
     except KeyboardInterrupt:
-        print("cancelling")
+        logging.info("cancelling")
 
 
 # utilities
 def drain_tank(args):
-    print("turning on out_pump")
+    logging.info("turning on out_pump")
     try:
         in_pump.on()
 
         while True:
             pass
     except KeyboardInterrupt:
-        print("shuting down")
+        logging.info("shuting down")
 
 
 if __name__ == "__main__":
