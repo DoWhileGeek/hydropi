@@ -20,7 +20,10 @@ def fill(args):
     pre_fill = datetime.datetime.utcnow()
     in_pump.on()
 
-    high_float.wait_for_release()
+    high_float.wait_for_release(config["fill_timeout"])
+    if high_float.is_pressed:
+        logging.warning("fill timed out, cutting it short")
+
     logging.debug(
         f"seconds from empty to filled: {(datetime.datetime.utcnow() - pre_fill).total_seconds()}"
     )

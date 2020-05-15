@@ -6,4 +6,5 @@ config = {
     "timeout": 30,
     "delay": 20,
     "overfill": 15,
+    "fill_timeout": 420,
 }
