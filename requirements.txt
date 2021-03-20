@@ -7,7 +7,7 @@ gpiozero==1.5.1
 -e git+git@github.com:DoWhileGeek/hydropi.git@51c62781165e7c6669fed783ed2d45c43b169a48#egg=hydropi
 importlib-metadata==1.5.0
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 more-itertools==8.2.0
 packaging==20.1
